@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: IDOFactory
+    network: sepolia
+    source:
+      address: "0x60e0BbC21e05Fd3Cc275E0e5d273Cb0b8A9e4950"
+      abi: IDOFactory
+      startBlock: 7095934
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - IDOCreated
+        - OwnershipTransferred
+        - addedToBlock
+        - removedFromBlock
+      abis:
+        - name: IDOFactory
+          file: ./abis/IDOFactory.json
+      eventHandlers:
+        - event: IDOCreated(indexed address,address,address)
+          handler: handleIDOCreated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: addedToBlock(address)
+          handler: handleaddedToBlock
+        - event: removedFromBlock(address)
+          handler: handleremovedFromBlock
+      file: ./src/ido-factory.ts
