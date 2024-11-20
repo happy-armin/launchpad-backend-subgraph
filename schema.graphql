@@ -32,3 +32,34 @@ type removedFromBlock @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+type Pool @entity {
+  id: ID!
+  holder: Bytes!
+  rewardToken: Bytes!
+  buyToken: Bytes!
+  price: BigInt!
+  softCap: BigInt!
+  hardCap: BigInt!
+  startTime: BigInt!
+  endTime: BigInt!
+  claimTime: BigInt!
+  ipfsUrl: String
+}
+
+type Stake @entity {
+  id: ID!
+  holder: Bytes!
+  amount: BigInt!
+}
+
+type Refund @entity {
+  id: ID!
+  holder: Bytes!
+}
+
+type Claim @entity {
+  id: ID!
+  holder: Bytes!
+  amount: BigInt!
+}

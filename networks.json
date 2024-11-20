@@ -1,8 +1,8 @@
 {
   "sepolia": {
     "IDOFactory": {
-      "address": "0x60e0BbC21e05Fd3Cc275E0e5d273Cb0b8A9e4950",
-      "startBlock": 7095934
+      "address": "0x7b777442d9f345E0851a038A30872ECD097C709b",
+      "startBlock": 7103261
     }
   }
 }
