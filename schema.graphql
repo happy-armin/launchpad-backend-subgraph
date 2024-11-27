@@ -36,6 +36,7 @@ type removedFromBlock @entity(immutable: true) {
 type Pool @entity {
   id: ID!
   holder: Bytes!
+  address: Bytes!
   rewardToken: Bytes!
   buyToken: Bytes!
   price: BigInt!
@@ -50,16 +51,19 @@ type Pool @entity {
 type Stake @entity {
   id: ID!
   holder: Bytes!
+  address: Bytes! # address
   amount: BigInt!
 }
 
 type Refund @entity {
   id: ID!
   holder: Bytes!
+  address: Bytes! # address
 }
 
 type Claim @entity {
   id: ID!
   holder: Bytes!
+  address: Bytes! # address
   amount: BigInt!
 }

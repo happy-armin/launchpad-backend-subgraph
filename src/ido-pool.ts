@@ -12,6 +12,7 @@ export function handlePoolCreated(event: PoolCreated): void {
   let pool = new Pool(event.params.pool.toHex());
 
   pool.holder = event.params.holder;
+  pool.address = event.params.pool;
   pool.rewardToken = event.params.rewardToken;
   pool.buyToken = event.params.buyToken;
   pool.price = event.params.price;
@@ -32,6 +33,7 @@ export function handleTokenStake(event: TokenStake): void {
   );
 
   stake.holder = event.params.holder;
+  stake.address = event.params.pool;
   stake.amount = event.params.amount;
 
   stake.save();
@@ -45,6 +47,7 @@ export function handleTokenRefund(event: TokenRefund): void {
   );
 
   refund.holder = event.params.holder;
+  refund.address = event.params.pool;
 
   refund.save();
 }
@@ -57,6 +60,7 @@ export function handleTokenClaim(event: TokenClaim): void {
   );
 
   claim.holder = event.params.holder;
+  claim.address = event.params.pool;
   claim.amount = event.params.amount;
 
   claim.save();
